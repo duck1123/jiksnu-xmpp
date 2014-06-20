@@ -1,11 +1,11 @@
 (ns jiksnu.modules.xmpp.actions.comment-actions
-  (:use [ciste.config :only [config]]
-        [ciste.core :only [defaction]])
-  (:require [ciste.model :as cm]
+  (:require [ciste.config :refer [config]]
+            [ciste.core :refer [defaction]]
+            [ciste.model :as cm]
             [clj-tigase.core :as tigase]
             [clj-tigase.element :as element]
             [clojure.tools.logging :as log]
-            [jiksnu.actions.activity-actions :as actions.activity]
+            [jiksnu.actions.comment-actions :as actions.comment]
             [jiksnu.model.activity :as model.activity]
             [jiksnu.model.user :as model.user]
             [jiksnu.namespace :as ns]
@@ -20,7 +20,7 @@
     :body
     (element/make-element
      ["pubsub" {"xmlns" ns/pubsub}
-      ["items" {"node" (comment-node-uri activity)}]])}))
+      ["items" {"node" (actions.comment/comment-node-uri activity)}]])}))
 
 (defn fetch-comments-onesocialweb
   [activity]
