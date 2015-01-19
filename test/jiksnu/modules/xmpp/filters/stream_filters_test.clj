@@ -41,7 +41,7 @@
              (filter-action #'actions.stream/public-timeline request) =>
              (check [response]
                response => map?
-               (:totalRecords response) => 0
+               (:totalItems response) => 0
                (let [items (:items response)]
                  items => empty?))))
 
@@ -61,7 +61,7 @@
                  (filter-action #'actions.stream/public-timeline request) =>
                  (check [response]
                    response => map?
-                   (:totalRecords response) => 1
+                   (:totalItems response) => 1
                    (let [items (:items response)]
                      (doseq [item items]
                        item => (partial instance? Conversation))))))))

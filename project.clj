@@ -19,7 +19,6 @@
 
                  [clj-time "0.6.0"]
 
-                 [clojurewerkz/route-one "1.1.0"]
                  [clojurewerkz/urly "1.0.0"
                   :exclusions [com.google.guava/guava]]
 

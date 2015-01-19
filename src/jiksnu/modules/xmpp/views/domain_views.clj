@@ -2,8 +2,7 @@
   (:use [ciste.views :only [defview]]
         [jiksnu.actions.domain-actions :only [create delete discover find-or-create
                                               index show ping ping-response
-                                              ping-error]]
-        [jiksnu.ko :only [*dynamic*]])
+                                              ping-error]])
   (:require [ciste.model :as cm]
             [clojure.tools.logging :as log]
             [jiksnu.actions.user-actions :as actions.user]

@@ -5,7 +5,6 @@
             [ciste.model :as cm]
             [clj-tigase.core :as tigase]
             [clj-time.core :as time]
-            [clojure.core.incubator :refer [-?>>]]
             [clojure.data.json :as json]
             [clojure.tools.logging :as log]
             [jiksnu.model :as model]
