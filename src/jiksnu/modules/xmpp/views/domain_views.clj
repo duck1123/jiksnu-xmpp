@@ -1,33 +1,21 @@
 (ns jiksnu.modules.xmpp.views.domain-views
-  (:use [ciste.views :only [defview]]
-        [jiksnu.actions.domain-actions :only [create delete discover find-or-create
-                                              index show ping ping-response
-                                              ping-error]])
   (:require [ciste.model :as cm]
+            [ciste.views :only [defview]]
             [clojure.tools.logging :as log]
-            [jiksnu.actions.user-actions :as actions.user]
-            [jiksnu.model.domain :as model.domain]
-            [jiksnu.model.user :as model.user]
-            [jiksnu.namespace :as ns]
-            )
+            [jiksnu.actions.domain-actions :as actions.domain]
+            [jiksnu.model.domain :as model.domain])
   (:import jiksnu.model.Domain
            jiksnu.model.User))
 
-;; ping
-
-(defview #'ping :xmpp
+(defview #'actions.domain/ping :xmpp
   [request domain]
   (model.domain/ping-request domain))
 
-;; ping-error
-
-(defview #'ping-error :xmpp
+(defview #'actions.domain/ping-error :xmpp
   [request _]
   (cm/implement))
 
-;; ping-response
-
-(defview #'ping-response :xmpp
+(defview #'actions.domain/ping-response :xmpp
   [request _domain]
   (cm/implement)
   #_{:status 303
